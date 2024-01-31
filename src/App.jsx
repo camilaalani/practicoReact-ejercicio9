@@ -12,6 +12,19 @@ const App = () => {
     setCitas(citasGuardadas);
   }, []);
 
+  const handleAgregarCita = (nuevaCita) => {
+    setCitas((prevCitas) => [...prevCitas, nuevaCita]);
+    const citasGuardadas = JSON.parse(localStorage.getItem("citas")) || [];
+    localStorage.setItem("citas", JSON.stringify([...citasGuardadas, nuevaCita]));
+  };
+
+  const handleBorrarCita = (index) => {
+    const citasActualizadas = [...citas];
+    citasActualizadas.splice(index, 1);
+    localStorage.setItem("citas", JSON.stringify(citasActualizadas));
+    setCitas(citasActualizadas);
+  };
+
   return (
     <>
 
