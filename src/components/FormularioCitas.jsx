@@ -7,6 +7,26 @@ const FormularioCitas = ({ onAgregarCita }) => {
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
   const [sintomas, setSintomas] = useState("");
+
+  const handleAgregarCita = () => {
+    if (nombreMascota && nombreDueno && fecha && hora && sintomas) {
+      const nuevaCita = {
+        nombreMascota,
+        nombreDueno,
+        fecha,
+        hora,
+        sintomas,
+      };
+      onAgregarCita(nuevaCita);
+      setNombreMascota("");
+      setNombreDueno("");
+      setFecha("");
+      setHora("");
+      setSintomas("");
+    } else {
+      alert("Completa todos los campos antes de agregar una cita.");
+    }
+  };
   
   return (
     <>
