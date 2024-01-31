@@ -26,9 +26,16 @@ const App = () => {
   };
 
   return (
-    <>
-
-    </>
+    <Container className="my-4">
+      <Row>
+        <Col md={6}>
+          <FormularioCitas onAgregarCita={handleAgregarCita} />
+        </Col>
+        <Col md={6}>
+          <ListaCitas citas={citas} onBorrarCita={handleBorrarCita} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
